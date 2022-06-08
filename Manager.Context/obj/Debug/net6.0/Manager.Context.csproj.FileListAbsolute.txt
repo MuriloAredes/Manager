@@ -1,0 +1,17 @@
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Context.deps.json
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Context.runtimeconfig.json
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Context.dll
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Context.pdb
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Domain.dll
+C:\Users\Muril\source\repos\Manager\Manager.Context\bin\Debug\net6.0\Manager.Domain.pdb
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.csproj.AssemblyReference.cache
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.AssemblyInfoInputs.cache
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.AssemblyInfo.cs
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.csproj.CoreCompileInputs.cache
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.csproj.CopyComplete
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.dll
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\refint\Manager.Context.dll
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.pdb
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\Manager.Context.genruntimeconfig.cache
+C:\Users\Muril\source\repos\Manager\Manager.Context\obj\Debug\net6.0\ref\Manager.Context.dll

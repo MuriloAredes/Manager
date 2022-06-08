@@ -1,0 +1,12 @@
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\bin\Debug\net6.0\Manager.Ioc.deps.json
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\bin\Debug\net6.0\Manager.Ioc.dll
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\bin\Debug\net6.0\Manager.Ioc.pdb
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.csproj.AssemblyReference.cache
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.AssemblyInfoInputs.cache
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.AssemblyInfo.cs
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.csproj.CoreCompileInputs.cache
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.dll
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\refint\Manager.Ioc.dll
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\Manager.Ioc.pdb
+C:\Users\Muril\source\repos\Manager\Manager.Ioc\obj\Debug\net6.0\ref\Manager.Ioc.dll
