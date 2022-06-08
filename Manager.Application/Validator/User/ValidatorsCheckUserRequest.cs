@@ -18,15 +18,15 @@ namespace Manager.Application.Validator.User
             RuleFor(e => e.Email)
                 .NotEmpty().WithMessage("O campo Email é obrigatorio")
                 .NotNull().WithMessage("O campo Email é obrigatorio")
-                .EmailAddress().WithMessage("E-mail invalido! digite um email valido ");
-               // .Must(ChekHasEmail).WithMessage("E-mail exitente !!");
+                .EmailAddress().WithMessage("E-mail invalido")
+                .Must(ChekHasEmail).WithMessage("E-mail jás existente !!");
         }
 
         public bool ChekHasEmail(string email) 
         {
-            var result = _context.usuarios.Find(email);
+            var result = _context.usuarios.FirstOrDefault(e => e.Email.Equals(email));
 
-            return result.Email.Equals(email) || email.Equals(result.Email);
+            return result == null? true: false;
         }
     }
 }
