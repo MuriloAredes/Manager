@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manager.Context.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220608140835_FirtMigratin")]
-    partial class FirtMigratin
+    [Migration("20220608190622_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,9 @@ namespace Manager.Context.Migrations
                     b.Property<string>("Sobrenome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UltimoAcesso")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -1,16 +1,13 @@
 ﻿using Manager.Domain.Entity;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Web.Administration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Manager.Api.Auth
+namespace Manager.Application.Auth
 {
-    public class AuthToken
+    public static class TokenService
     {
-        public static class JwtAuth
-        {
             public static string GenerateToken(Usuario user)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -28,7 +25,7 @@ namespace Manager.Api.Auth
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
             }
-        }
+        
     }
 
     public static class Settings 

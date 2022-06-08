@@ -47,7 +47,7 @@ namespace Manager.Application.User.Command.Create
                 Ativo = true,
                 Registro = DateTime.Now
             });
-
+                     
             await _context.SaveChangesAsync();
 
             return Unit.Value;

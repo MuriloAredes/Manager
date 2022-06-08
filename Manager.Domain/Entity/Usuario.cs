@@ -11,6 +11,7 @@ namespace Manager.Domain.Entity
         public string Email { get; set; }
         public string Senha { get; set; }
         public DateTime Registro{ get; set; }
+        public DateTime UltimoAcesso{ get; set; }
         public bool Ativo { get; set; }
         
     }
