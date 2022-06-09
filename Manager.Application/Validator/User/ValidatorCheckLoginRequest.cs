@@ -23,14 +23,5 @@ namespace Manager.Application.Validator.User
             
         }
 
-        public bool CheckHasEmail(string email, string password) 
-        {
-            var user = _context.usuarios.FirstOrDefault(e => e.Email.Equals(email) &&
-                                                             e.Senha.Equals(password));
-            if (user == null)
-                return false;
-
-            return true;
-        }
     }
 }

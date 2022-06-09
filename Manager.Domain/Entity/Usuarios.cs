@@ -2,7 +2,7 @@
 
 namespace Manager.Domain.Entity
 {
-    public class Usuario
+    public class Usuarios
     {
         [Key]
         public long Id { get; set; }

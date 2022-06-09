@@ -38,7 +38,7 @@ namespace Manager.Application.User.Command.Create
                 throw new Exception (string.Join(",", validator.Errors.Select(x => x.ErrorMessage)));
             #endregion
         
-            var user = await _context.usuarios.AddAsync(new Usuario 
+            var user = await _context.usuarios.AddAsync(new Usuarios 
             {
                 Nome = request.Nome,
                 Sobrenome = request.Sobrenome,

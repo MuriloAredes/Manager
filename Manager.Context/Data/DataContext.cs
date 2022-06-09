@@ -6,7 +6,9 @@ namespace Manager.Context.Data
     public class DataContext : DbContext
     {
         #region Entities 
-        public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Usuarios> usuarios { get; set; }
+        public DbSet<Categorias> categorias { get; set; }
+        public DbSet<Produtos> produtos { get; set; }
         #endregion
 
         public DataContext(DbContextOptions<DataContext> options)
