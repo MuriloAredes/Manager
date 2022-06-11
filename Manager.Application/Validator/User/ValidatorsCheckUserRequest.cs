@@ -18,7 +18,7 @@ namespace Manager.Application.Validator.User
             RuleFor(e => e.Email)
                 .NotEmpty().WithMessage("O campo Email é obrigatorio")
                 .NotNull().WithMessage("O campo Email é obrigatorio")
-                .EmailAddress().WithMessage("E-mail invalido")
+                .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
                 .Must(ChekHasEmail).WithMessage("E-mail jás existente !!");
         }
 

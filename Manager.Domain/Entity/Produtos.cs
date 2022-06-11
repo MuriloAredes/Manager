@@ -12,7 +12,7 @@ namespace Manager.Domain.Entity
     {
         [Key]
         public long Id { get; set; }
-        public string Name { get; set; } 
+        public string Name { get; set; } = string.Empty;
         public long CategoriaId { get; set; } 
         public int Quantidade { get; set; }
         public double ValorUnitario { get; set; }
@@ -21,6 +21,6 @@ namespace Manager.Domain.Entity
        
         [ForeignKey(nameof(CategoriaId))]
         [InverseProperty(nameof(Categorias.Produtos))]
-        public virtual Categorias Categoria { get; set; }
+        public virtual Categorias Categoria { get; set; } 
     }
 }

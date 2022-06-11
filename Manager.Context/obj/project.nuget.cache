@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DBr2NzXuO/Y4ZoOAfR+OuXkhdZ4m9U61lWvFhi7G9PQY/PDWzFQipr4GR0smcOyzcJM1HOKbiG4rTXrPH+77lQ==",
+  "dgSpecHash": "42ZztetHwUqp2g5gs31PE/TAwlwlUPllWFqIUAFNHZV4zr3mWKVdt6Jn9mjTflLJaF9PChI27OqkZ6tZXoV8nQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Muril\\source\\repos\\Manager\\Manager.Context\\Manager.Context.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,9 @@
     "C:\\Users\\Muril\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Muril\\.nuget\\packages\\npoi\\2.5.6\\npoi.2.5.6.nupkg.sha512",
+    "C:\\Users\\Muril\\.nuget\\packages\\portable.bouncycastle\\1.8.9\\portable.bouncycastle.1.8.9.nupkg.sha512",
+    "C:\\Users\\Muril\\.nuget\\packages\\sharpziplib\\1.3.3\\sharpziplib.1.3.3.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

@@ -27,7 +27,13 @@ C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Microsoft.IdentityM
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Microsoft.Web.Administration.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\NPOI.OOXML.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\NPOI.OpenXml4Net.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\NPOI.OpenXmlFormats.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\NPOI.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Serilog.dll
+C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Muril\source\repos\Manager\Manager\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

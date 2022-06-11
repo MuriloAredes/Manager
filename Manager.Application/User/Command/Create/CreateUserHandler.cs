@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Manager.Context.Data;
+using Manager.Context.Repositorio.Interfaces;
 using Manager.Domain.Entity;
 using MediatR;
 using System;
@@ -19,14 +20,17 @@ namespace Manager.Application.User.Command.Create
     }
     public class CreateUserHandler : IRequestHandler<CreateUserRequest>
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly DataContext _context;
         private readonly IValidator<CreateUserRequest> _validator;
 
         public CreateUserHandler(DataContext context, 
-            IValidator<CreateUserRequest> validator)
+            IValidator<CreateUserRequest> validator,
+            IUnitOfWork unitOfWork)
         {
             _context = context;
             _validator = validator;
+            _unitOfWork = unitOfWork;   
         }
 
         public async Task<Unit> Handle(CreateUserRequest request, CancellationToken cancellationToken)
@@ -47,7 +51,7 @@ namespace Manager.Application.User.Command.Create
                 Ativo = true,
                 Registro = DateTime.Now
             });
-                     
+           
             await _context.SaveChangesAsync();
 
             return Unit.Value;

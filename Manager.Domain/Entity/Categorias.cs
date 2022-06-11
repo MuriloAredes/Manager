@@ -7,7 +7,7 @@ namespace Manager.Domain.Entity
     {
         [Key]
         public long Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public bool Ativo { get; set; }
         public bool Deletado { get; set; }
 
