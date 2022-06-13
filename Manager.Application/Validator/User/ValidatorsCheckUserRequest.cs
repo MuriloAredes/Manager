@@ -19,14 +19,19 @@ namespace Manager.Application.Validator.User
                 .NotEmpty().WithMessage("O campo Email é obrigatorio")
                 .NotNull().WithMessage("O campo Email é obrigatorio")
                 .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
-                .Must(ChekHasEmail).WithMessage("E-mail jás existente !!");
+                .Must(ChekHasEmail).WithMessage("E-Mail já existente");
+
+            RuleFor(s => s.Senha)
+                .Length(6)
+                .MaximumLength(10)
+                .Equal(e => e.ConfirmarSenha);
         }
 
         public bool ChekHasEmail(string email) 
         {
-            var result = _context.usuarios.FirstOrDefault(e => e.Email.Equals(email));
+            var result = _context.Usuarios.Any(e => e.Email.Equals(email));
 
-            return result == null? true: false;
+            return !result; 
         }
     }
 }

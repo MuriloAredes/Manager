@@ -1,21 +1,16 @@
 ﻿using Manager.Context.Data;
 using Manager.Context.Repositorio.Interfaces;
 using Manager.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Manager.Context.Repositorio
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        public IRepository<Usuarios> usuarioRepository { get; set; } 
+       private IRepository<Usuario> usuariosRepository { get; set; }
 
-        public IRepository<Produtos> produtosRepository { get; set; }
+        private IRepository<Produto> produtosRepository { get; set; }
 
-        public IRepository<Categorias> categoriasRepository { get; set; }
+        private IRepository<Categoria> categoriasRepository { get; set; }
 
 
         private readonly DataContext _context;
@@ -25,35 +20,35 @@ namespace Manager.Context.Repositorio
             _context = context;
         }
 
-        public IRepository<Usuarios> UsuarioRepository
+        public IRepository<Usuario> Usuarios
         {
-            get 
+            get
             {
-                if(usuarioRepository == null)
-                    return usuarioRepository = new Repository<Usuarios>(_context);
-            
-                return usuarioRepository;
+                if (usuariosRepository == null)
+                    return usuariosRepository = new Repository<Usuario>(_context);
+
+                return usuariosRepository;
             }
-            
+
         }
 
-        public IRepository<Produtos> ProdutosRepository 
+        public IRepository<Produto> Produtos
         {
-            get 
+            get
             {
                 if (produtosRepository == null)
-                    return produtosRepository = new Repository<Produtos>(_context);
+                    return produtosRepository = new Repository<Produto>(_context);
 
                 return produtosRepository;
             }
         }
 
-        public IRepository<Categorias> CategoriasRepository
+        public IRepository<Categoria> Categorias
         {
             get
             {
                 if (categoriasRepository == null)
-                    return categoriasRepository = new Repository<Categorias>(_context);
+                    return categoriasRepository = new Repository<Categoria>(_context);
 
                 return categoriasRepository;
             }
@@ -71,7 +66,11 @@ namespace Manager.Context.Repositorio
             this.disposed = true;
         }
 
-        public void Dispose() 
+        public async Task<bool> Commit() 
+        {
+           return await _context.SaveChangesAsync() > 0;
+        }
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

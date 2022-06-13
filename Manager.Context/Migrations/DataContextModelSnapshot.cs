@@ -22,7 +22,7 @@ namespace Manager.Context.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Manager.Domain.Entity.Categorias", b =>
+            modelBuilder.Entity("Manager.Domain.Entity.Categoria", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,10 +42,10 @@ namespace Manager.Context.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categorias");
+                    b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("Manager.Domain.Entity.Produtos", b =>
+            modelBuilder.Entity("Manager.Domain.Entity.Produto", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,10 +76,10 @@ namespace Manager.Context.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("produtos");
+                    b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("Manager.Domain.Entity.Usuarios", b =>
+            modelBuilder.Entity("Manager.Domain.Entity.Usuario", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,26 +109,26 @@ namespace Manager.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UltimoAcesso")
+                    b.Property<DateTime?>("UltimoAcesso")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("usuarios");
+                    b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("Manager.Domain.Entity.Produtos", b =>
+            modelBuilder.Entity("Manager.Domain.Entity.Produto", b =>
                 {
-                    b.HasOne("Manager.Domain.Entity.Categorias", "Categoria")
+                    b.HasOne("Manager.Domain.Entity.Categoria", "Categorias")
                         .WithMany("Produtos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Categoria");
+                    b.Navigation("Categorias");
                 });
 
-            modelBuilder.Entity("Manager.Domain.Entity.Categorias", b =>
+            modelBuilder.Entity("Manager.Domain.Entity.Categoria", b =>
                 {
                     b.Navigation("Produtos");
                 });

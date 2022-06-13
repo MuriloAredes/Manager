@@ -18,7 +18,7 @@ namespace Manager.Application.Validator.Categoria
 
         public bool CheckHasName(string name) 
         {
-            var categorie = _context.categorias.FirstOrDefault(e => e.Name.Equals(name));
+            var categorie = _context.Categorias.FirstOrDefault(e => e.Name.Equals(name));
 
             return categorie != null? false: true;
         }

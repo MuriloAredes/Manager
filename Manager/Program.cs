@@ -2,9 +2,12 @@ using System.Reflection;
 using FluentValidation;
 using Manager.Application.User.Command.Create;
 using Manager.Context.Data;
+using Manager.Context.Repositorio;
+using Manager.Context.Repositorio.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NPOI.SS.Formula.Functions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +25,8 @@ builder.Services.AddMediatR(assembly);
 //Depende for validator
 builder.Services.AddValidatorsFromAssembly(Assembly.Load("Manager.Application"));
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IRepository<T>, Repository<T>>();
 
 string strConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 

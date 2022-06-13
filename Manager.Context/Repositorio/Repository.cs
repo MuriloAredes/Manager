@@ -8,16 +8,16 @@ namespace Manager.Context.Repositorio
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private DataContext _context;
+        private readonly DataContext _context;
         DbSet<T> _dbSet;
         public Repository(DataContext context )
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            _dbSet.Add(entity);
+           await _dbSet.AddAsync(entity);
         }
 
         public void Delete(T entity)
@@ -25,23 +25,23 @@ namespace Manager.Context.Repositorio
             _dbSet.Remove(entity);
         }
 
-        public T Get(Expression<Func<T, bool>> predicate)
+        public async Task<T> Get(Expression<Func<T, bool>> predicate)
         {
-            return _dbSet.FirstOrDefault(predicate);
+            return await _dbSet.FirstOrDefaultAsync(predicate);
         }
 
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null)
+        public  IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null)
         {
             if(predicate !=null)
-                return _dbSet.Where(predicate);
+                return  _dbSet.Where(predicate);
             
-            return _dbSet.AsEnumerable();
+            return  _dbSet.AsEnumerable();
         }
 
         public void Update(T entity)
         {
-            _dbSet.Attach(entity);
-            
+            _dbSet.Attach(entity);        
         }
+
     }
 }

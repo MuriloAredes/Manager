@@ -1,21 +1,21 @@
 ﻿using FluentValidation;
-using Manager.Context.Data;
-using Manager.Domain.Entity;
+using Manager.Context.Repositorio.Interfaces;
 using MediatR;
 
 namespace Manager.Application.Categoria.Command.Create
 {
     public class CreateCategoriaRequest : IRequest
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
     public class CreateCategoriaHandler : IRequestHandler<CreateCategoriaRequest>
     {
-        private readonly DataContext _context;
+        
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IValidator<CreateCategoriaRequest> _validator;
-        public CreateCategoriaHandler(DataContext context, IValidator<CreateCategoriaRequest> validator)
+        public CreateCategoriaHandler(IUnitOfWork unitOfWork, IValidator<CreateCategoriaRequest> validator)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
             _validator = validator;
         }
 
@@ -29,14 +29,14 @@ namespace Manager.Application.Categoria.Command.Create
                 throw new Exception(string.Join(",", validator.Errors.Select(x => x.ErrorMessage)));
             #endregion
 
-            await _context.categorias.AddAsync(new Categorias 
+            await _unitOfWork.Categorias.Add(new Domain.Entity.Categoria 
             {
                 Name = request.Name,
                 Ativo = true,
                 Deletado = false
             });
 
-            await _context.SaveChangesAsync();
+            await _unitOfWork.Commit();
 
             return Unit.Value;
         }

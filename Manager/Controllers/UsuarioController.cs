@@ -1,7 +1,6 @@
 ﻿using Manager.Api.Helper;
-using Manager.Api.Security;
 using Manager.Application.User.Command.Create;
-using Manager.Application.User.Queries.GetUser;
+using Manager.Application.User.Command.Login;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,11 +32,12 @@ namespace Manager.Api.Controllers
                     Nome = request.Nome,
                     Sobrenome = request.Sobrenome,
                     Email = request.Email,
-                    Senha = Encrypt.GenerateMD5(request.Senha)
+                    Senha = request.Senha,
+                    ConfirmarSenha = request.ConfirmarSenha
                 });
 
-                var suceesMessage = result != null ? " Cadastrado com Sucesso !" : "Ocorreu um erro ao cadastrar";
-                return Ok(suceesMessage);
+               
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -49,14 +49,14 @@ namespace Manager.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AcessResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseDefault))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ResponseDefault))]
-        public async Task<IActionResult> Login([FromBody] GetUserRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginUserRequest request)
         {
             try
             {
-                var result = await _mediator.Send(new GetUserRequest
+                var result = await _mediator.Send(new LoginUserRequest
                 {
                     Email = request.Email,
-                    Password = Encrypt.GenerateMD5(request.Password)
+                    Password = request.Password
                     
                 });
 

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
-using Manager.Application.User.Queries.GetUser;
+using Manager.Application.User.Command.Login;
 using Manager.Context.Data;
 
 namespace Manager.Application.Validator.User
 {
-    public class ValidatorCheckLoginRequest : AbstractValidator<GetUserRequest>
+    public class ValidatorCheckLoginRequest : AbstractValidator<LoginUserRequest>
     {
         private readonly DataContext _context;
         public ValidatorCheckLoginRequest(DataContext context)
