@@ -17,7 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Produto\" />
+    <Folder Include="Produto\Command\Delete\" />
+    <Folder Include="Produto\Command\UpdateStatus\" />
+    <Folder Include="Produto\Command\Update\" />
+    <Folder Include="Produto\Queries\" />
     <Folder Include="User\Queries\GetUser\" />
   </ItemGroup>
 
