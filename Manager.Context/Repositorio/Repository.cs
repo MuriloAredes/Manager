@@ -35,7 +35,7 @@ namespace Manager.Context.Repositorio
             if(predicate !=null)
                 return  _dbSet.Where(predicate);
             
-            return  _dbSet.AsEnumerable();
+            return  _dbSet.AsEnumerable().ToList();
         }
 
         public void Update(T entity)

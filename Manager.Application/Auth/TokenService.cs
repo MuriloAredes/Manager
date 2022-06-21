@@ -8,7 +8,7 @@ namespace Manager.Application.Auth
 {
     public static class TokenService
     {
-            public static string GenerateToken(Usuario user)
+            public static string GenerateToken(this Usuario user)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(Settings.key);

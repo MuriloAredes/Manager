@@ -1,15 +1,10 @@
 ﻿using Manager.Context.Repositorio.Interfaces;
 using Manager.Domain.Enum;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Manager.Application.Categoria.Queries.GetAll
+namespace Manager.Application.Categorie.Queries.GetAll
 {
-    public class GetAllCategoriaRequest : IRequest<List<GetAllCategoriaResponse>>
+    public class GetAllCategoriaRequest : IRequest<List<GetByIdCategoriaResponse>>
     {
         public string Search { get; set; } = string.Empty;
         public int Page { get; set; }
@@ -17,26 +12,26 @@ namespace Manager.Application.Categoria.Queries.GetAll
         public bool IsAsc { get; set; }
         public CategoriaSortColunm? SortColunm { get; set; }
     }
-    public class GetAllCategoriaResponse
+    public class GetByIdCategoriaResponse
     {
         public long Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public bool Ativo { get; set; }
     }
-    public class GetAllCategoriaHandler : IRequestHandler<GetAllCategoriaRequest, List<GetAllCategoriaResponse>>
+    public class GetAllCategoriaHandler : IRequestHandler<GetAllCategoriaRequest, List<GetByIdCategoriaResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
         public GetAllCategoriaHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<List<GetAllCategoriaResponse>> Handle(GetAllCategoriaRequest request, CancellationToken cancellationToken)
+        public async Task<List<GetByIdCategoriaResponse>> Handle(GetAllCategoriaRequest request, CancellationToken cancellationToken)
         {
             
             var categories = _unitOfWork.Categorias.GetAll(e => (string.IsNullOrEmpty(request.Search) ||
                                                                        e.Name.Contains(request.Search)) &&
                                                                        !e.Deletado)
-                                                         .Select(res => new GetAllCategoriaResponse
+                                                         .Select(res => new GetByIdCategoriaResponse
                                                          {
                                                              Id = res.Id,
                                                              Name = res.Name,

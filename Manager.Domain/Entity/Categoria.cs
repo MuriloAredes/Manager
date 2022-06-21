@@ -5,6 +5,10 @@ namespace Manager.Domain.Entity
 {
     public class Categoria
     {
+        public Categoria()
+        {
+            Produtos = new HashSet<Produto>();
+        }
         [Key]
         public long Id { get; set; }
         public string Name { get; set; } = string.Empty;

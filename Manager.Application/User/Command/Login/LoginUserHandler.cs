@@ -22,7 +22,7 @@ namespace Manager.Application.User.Command.Login
 
     public class LoginUserHandler : IRequestHandler<LoginUserRequest, AcessResponse>
     {
-        private readonly DataContext _context;
+        
         private readonly IUnitOfWork _unitOfWork;
         private readonly IValidator<LoginUserRequest> _validator;
         private readonly IValidator<CheckHasUser> _validatorCheckHasUser;
@@ -61,7 +61,7 @@ namespace Manager.Application.User.Command.Login
 
             var response = new AcessResponse
             {
-                Token = TokenService.GenerateToken(usuario)
+                Token = usuario.GenerateToken()
 
             };
             #endregion

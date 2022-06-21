@@ -56,7 +56,8 @@ namespace Manager.Context.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<long>("CategoriaId")
+                    b.Property<long?>("CategoriaId")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<bool>("Deletado")

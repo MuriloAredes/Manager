@@ -1,8 +1,9 @@
 ﻿using FluentValidation;
 using Manager.Context.Repositorio.Interfaces;
+using Manager.Domain.Entity;
 using MediatR;
 
-namespace Manager.Application.Produto.Command.Create
+namespace Manager.Application.Product.Command.Create
 {
     public class CreateProdutoRequest : IRequest 
     {
@@ -31,7 +32,8 @@ namespace Manager.Application.Produto.Command.Create
                 throw new Exception(string.Join(",", validator.Errors.Select(x => x.ErrorMessage)));
             
             #endregion
-            var produto =  _unitOfWork.Produtos.Add(new Domain.Entity.Produto
+            
+            await _unitOfWork.Produtos.Add(new Produto
             {
                 Name = request.Name,
                 Quantidade = request.Quantidade,
@@ -41,7 +43,7 @@ namespace Manager.Application.Produto.Command.Create
                 Deletado = false
             });
 
-            await _unitOfWork.Commit();
+           await _unitOfWork.Commit();
 
             return Unit.Value;
         }

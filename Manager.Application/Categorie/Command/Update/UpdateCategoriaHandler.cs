@@ -1,14 +1,7 @@
-﻿using Manager.Context.Data;
-using Manager.Context.Repositorio.Interfaces;
-using Manager.Domain.Entity;
+﻿using Manager.Context.Repositorio.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Manager.Application.Categoria.Command.Update
+namespace Manager.Application.Categorie.Command.Update
 {
     public class UpdateCategoriaRequest : IRequest
     {
@@ -29,7 +22,14 @@ namespace Manager.Application.Categoria.Command.Update
             if (string.IsNullOrEmpty(request.Name))
                 return Unit.Value;
 
-            _unitOfWork.Categorias.Update(new Domain.Entity.Categoria { Id = request.Id, Name = request.Name });
+            var categorie = await _unitOfWork.Categorias.Get(e => e.Id == request.Id);
+
+            if (categorie == null)
+                throw new Exception("categoria não encontrado!");
+
+            categorie.Name = request.Name;
+
+            _unitOfWork.Categorias.Update(categorie);
 
             await _unitOfWork.Commit();
 

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Manager.Application.Categoria.Command.Create;
+using Manager.Application.Categorie.Command.Create;
 using Manager.Context.Data;
 
-namespace Manager.Application.Validator.Categoria
+namespace Manager.Application.Validator.CategoriaValidator
 {
     public class ValidatorCheckCategoriaRequest : AbstractValidator<CreateCategoriaRequest>
     {
@@ -13,7 +13,8 @@ namespace Manager.Application.Validator.Categoria
 
             RuleFor(x => x.Name)
                 .NotNull().WithMessage("Preencha o campo")
-                .Must(CheckHasName).WithMessage("categoria já existente");
+                .Must(CheckHasName).WithMessage("categoria já existente")
+                .NotEmpty();
         }
 
         public bool CheckHasName(string name) 

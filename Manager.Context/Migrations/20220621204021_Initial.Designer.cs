@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manager.Context.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220613155016_initial")]
-    partial class initial
+    [Migration("20220621204021_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,8 @@ namespace Manager.Context.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<long>("CategoriaId")
+                    b.Property<long?>("CategoriaId")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<bool>("Deletado")

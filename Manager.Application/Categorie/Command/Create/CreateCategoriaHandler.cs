@@ -2,7 +2,7 @@
 using Manager.Context.Repositorio.Interfaces;
 using MediatR;
 
-namespace Manager.Application.Categoria.Command.Create
+namespace Manager.Application.Categorie.Command.Create
 {
     public class CreateCategoriaRequest : IRequest
     {

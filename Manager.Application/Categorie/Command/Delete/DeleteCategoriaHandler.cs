@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Manager.Application.Categoria.Command.Delete
+namespace Manager.Application.Categorie.Command.Delete
 {
     public class DeleteCategoriaRequest : IRequest 
     {

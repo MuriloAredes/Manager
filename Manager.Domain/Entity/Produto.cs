@@ -13,14 +13,14 @@ namespace Manager.Domain.Entity
         [Key]
         public long Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public long CategoriaId { get; set; } 
+        public long? CategoriaId { get; set; } 
         public int Quantidade { get; set; }
         public double ValorUnitario { get; set; }
         public bool Ativo { get; set; }
         public bool Deletado { get; set; }
        
         [ForeignKey(nameof(CategoriaId))]
-        [InverseProperty(nameof(Entity.Categoria.Produtos))]
+        [InverseProperty(nameof(Categoria.Produtos))]
         public virtual Categoria Categorias { get; set; } 
     }
 }

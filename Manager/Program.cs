@@ -1,13 +1,11 @@
-using System.Reflection;
 using FluentValidation;
-using Manager.Application.User.Command.Create;
 using Manager.Context.Data;
 using Manager.Context.Repositorio;
 using Manager.Context.Repositorio.Interfaces;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NPOI.SS.Formula.Functions;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,8 +30,12 @@ string strConnection = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(strConnection);
-});
+    options.UseSqlServer(strConnection, sqlServerOptionsAction: sqlOptions => { sqlOptions.EnableRetryOnFailure(); });
+     
+    
+}, ServiceLifetime.Scoped);
+
+
 
 var app = builder.Build();
 

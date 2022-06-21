@@ -1,11 +1,6 @@
 ﻿using FluentValidation;
-using Manager.Application.Produto.Command.Create;
+using Manager.Application.Product.Command.Create;
 using Manager.Context.Repositorio.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Manager.Application.Validator.Produto
 {
@@ -30,7 +25,8 @@ namespace Manager.Application.Validator.Produto
             RuleFor(i => i.ValorUnitario)
                 .NotEmpty()
                 .NotNull()
-                .Must(CheckMinimunValue).WithMessage("preencha o campo valor unitario");
+              //  .Must(CheckMinimunValue).WithMessage("preencha o campo valor unitario")
+                ;
         }
 
         public bool CheckHasName(string name) 
@@ -42,7 +38,7 @@ namespace Manager.Application.Validator.Produto
 
         public bool CheckMinimunValue(double num) 
         {
-           return num <= 0;
+           return num != 0;
         }
     }
 }

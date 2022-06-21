@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Produto\**" />
+    <EmbeddedResource Remove="Produto\**" />
+    <None Remove="Produto\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.0.2" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
@@ -17,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Produto\Command\Delete\" />
-    <Folder Include="Produto\Command\UpdateStatus\" />
-    <Folder Include="Produto\Command\Update\" />
-    <Folder Include="Produto\Queries\" />
     <Folder Include="User\Queries\GetUser\" />
   </ItemGroup>
 
