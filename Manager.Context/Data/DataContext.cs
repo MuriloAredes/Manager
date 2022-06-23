@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Manager.Context.Data
 {
-    public class DataContext : DbContext
+    public  class DataContext : DbContext
     {
         #region Entities 
         public  virtual  DbSet<Usuario> Usuarios { get; set; }

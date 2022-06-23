@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Manager.Context.Data;
 using Manager.Context.Repositorio.Interfaces;
 using Manager.Domain.Entity;
 using MediatR;
@@ -15,12 +16,15 @@ namespace Manager.Application.Product.Command.Create
     public class CreateProdutoHandler : IRequestHandler<CreateProdutoRequest>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly DataContext _context;
         private readonly IValidator<CreateProdutoRequest> _validator;
         public CreateProdutoHandler(IUnitOfWork unitOfWork,
-                                    IValidator<CreateProdutoRequest>validator)
+                                    IValidator<CreateProdutoRequest>validator,
+                                    DataContext context)
         {
             _unitOfWork = unitOfWork;
             _validator = validator;
+            _context = context;
         }
         public async Task<Unit> Handle(CreateProdutoRequest request, CancellationToken cancellationToken)
         {
@@ -42,8 +46,8 @@ namespace Manager.Application.Product.Command.Create
                 Ativo = true,
                 Deletado = false
             });
-
-           await _unitOfWork.Commit();
+           
+          await _unitOfWork.Commit();
 
             return Unit.Value;
         }

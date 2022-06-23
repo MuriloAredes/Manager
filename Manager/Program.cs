@@ -23,19 +23,20 @@ builder.Services.AddMediatR(assembly);
 //Depende for validator
 builder.Services.AddValidatorsFromAssembly(Assembly.Load("Manager.Application"));
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRepository<T>, Repository<T>>();
 
 string strConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(strConnection, sqlServerOptionsAction: sqlOptions => { sqlOptions.EnableRetryOnFailure(); });
-     
-    
-}, ServiceLifetime.Scoped);
+    options.UseSqlServer(strConnection
+        );
 
 
+});
+
+builder.Services.AddTransient<DataContext>();
 
 var app = builder.Build();
 

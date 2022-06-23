@@ -36,43 +36,46 @@ namespace Manager.Application.Product.Queries.GetAll
         }
         public async Task<List<GetAllProductsResponse>> Handle(GetAllProductsRequest request, CancellationToken cancellationToken)
         {
-            var produtos = _unitOfWork.Produtos.GetAll(e => (string.IsNullOrEmpty(request.Search) ||
-                                                                       e.Name.Contains(request.Search)) &&
-                                                                       !e.Deletado)
-                                                     .Select(res => new GetAllProductsResponse 
-                                                     {
-                                                         Id = res.Id,
+            return await Task.Run(() =>
+             {
+                 var produtos = _unitOfWork.Produtos.GetAll(e => (string.IsNullOrEmpty(request.Search) ||
+                                                                        e.Name.Contains(request.Search)) &&
+                                                                        !e.Deletado)
+                                                      .Select(res => new GetAllProductsResponse
+                                                      {
+                                                          Id = res.Id,
                                                           Name = res.Name,
-                                                          Categoria =  res.Categorias.Name,
+                                                        //  Categoria = res.Categorias.Name == null? "error": res.Categorias.Name ,
                                                           Quantidade = res.Quantidade,
                                                           ValorUnitario = res.ValorUnitario,
                                                           Ativo = res.Ativo
-                                                     } ).Skip((request.Page - 1) * request.PageSize)
-                                                        .Take(request.PageSize)
-                                                        .ToList();
-         
-            switch (request.SortColunm)
-            {
-                case ProductSortColunm.Name:
-                    produtos = request.IsAsc ?
-                        produtos.OrderByDescending(e => e.Name).ToList() :
-                        produtos.ToList();
-                    break;
+                                                      }).Skip((request.Page - 1) * request.PageSize)
+                                                         .Take(request.PageSize)
+                                                         .ToList();
 
-                case ProductSortColunm.Quantidade:
-                    produtos = request.IsAsc ?
-                       produtos.OrderByDescending(e => e.Quantidade).ToList() :
-                       produtos.ToList();
-                    break;
+                 switch (request.SortColunm)
+                 {
+                     case ProductSortColunm.Name:
+                         produtos = request.IsAsc ?
+                             produtos.OrderByDescending(e => e.Name).ToList() :
+                             produtos.ToList();
+                         break;
 
-                case ProductSortColunm.ValorUnitario:
-                    produtos = request.IsAsc ?
-                       produtos.OrderByDescending(e => e.ValorUnitario).ToList() :
-                       produtos.ToList();
-                    break;
-            };
+                     case ProductSortColunm.Quantidade:
+                         produtos = request.IsAsc ?
+                            produtos.OrderByDescending(e => e.Quantidade).ToList() :
+                            produtos.ToList();
+                         break;
 
-            return produtos;
+                     case ProductSortColunm.ValorUnitario:
+                         produtos = request.IsAsc ?
+                            produtos.OrderByDescending(e => e.ValorUnitario).ToList() :
+                            produtos.ToList();
+                         break;
+                 };
+
+                 return produtos;
+             });
         }
     }
 }

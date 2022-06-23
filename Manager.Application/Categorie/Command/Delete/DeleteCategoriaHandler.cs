@@ -23,6 +23,8 @@ namespace Manager.Application.Categorie.Command.Delete
         {
             _unitOfWork.Categorias.Delete(new  Domain.Entity.Categoria { Id = request.Id});
             
+            await _unitOfWork.Commit();
+            
             return Unit.Value;
         }
     }

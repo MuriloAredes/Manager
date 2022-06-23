@@ -30,7 +30,7 @@ namespace Manager.Context.Repositorio
             return await _dbSet.FirstOrDefaultAsync(predicate);
         }
 
-        public  IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null)
+        public  IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate )
         {
             if(predicate !=null)
                 return  _dbSet.Where(predicate);

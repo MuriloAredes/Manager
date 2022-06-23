@@ -14,7 +14,7 @@ namespace Manager.Api.Controllers
     public class ProdutoController : ControllerBase
     {
         private readonly IMediator _mediator;
-
+        
         public ProdutoController(IMediator mediator)
         {
             _mediator = mediator;
@@ -26,6 +26,7 @@ namespace Manager.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ResponseDefault))]
         public async Task<IActionResult> CreateProduto([FromBody] CreateProdutoRequest request)
         {
+            
             try
             {
                 var result = await _mediator.Send(request);
